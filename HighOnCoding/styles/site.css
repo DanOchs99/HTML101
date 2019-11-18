@@ -1,0 +1,97 @@
+#Banner {
+    background-color: #52A7FA;
+    color: white;
+    padding: 1em 1em 1em 1em;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 35;
+}
+#Home {
+    color: white;
+    margin-left: 2em;
+    font-weight: bold;
+    font-size: 20;
+    text-decoration: none;
+}
+#Categories {
+    color: white;
+    margin-left: 2em;
+    font-size: 20;
+    text-decoration: none;
+}
+#Heading {
+    color: black;
+    background-color: #DDDEE1;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: 0.25em 0.5em 0.5em 0.5em;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30;
+}
+
+.article {
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+.text {
+    color: black;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 12;
+}
+
+.title {
+    color: blue;
+    padding: 1em 0 1em 0;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 20;
+}
+
+.footer {
+    color: white;
+    background-color: #F27F1B;
+    padding: 0.2em 0 0.2em 0.4em;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 14;
+}
+
+.container {
+    padding: 0 0 0 5em;
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    grid-template-rows: 250px 250px;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px
+}
+
+.block {
+    background-color: lightgray;
+    height: 250;
+    width: 250;
+}
+
+.lang {
+    padding: 2em 0 2em 0;
+    justify-content: center;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 35;
+    width: 250;
+    text-align: center;
+}
+
+.articles {
+    color: gray;
+    justify-content: center;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 18;
+    width: 250;
+    text-align: center;
+}
+
