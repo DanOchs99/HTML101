@@ -1,0 +1,57 @@
+# Birthday JSON
+# www.practicepython.org/exercises
+#
+
+from os import system
+import json
+
+# initialize main program
+filename = 'scientist_birthdays.json'
+try:
+    fileobj = open('scientist_birthdays.json','r')
+except:
+    print(f"Error opening {filename} for reading.")
+if fileobj is not None:
+    try:
+        bd = json.load(fileobj)
+    except:
+        print(f"Error reading {filename}")
+if fileobj is not None:
+    fileobj.close()
+
+# clear terminal & print banner
+system('clear')
+print("Welcome to the birthday dictionary. We know the birthdays of:")
+for person in bd.keys():
+    print(person)
+
+# main loop
+while True:
+    # get input & lookup
+    choice = input("Who's birthday do you want to look up? ")
+    birthday = bd.get(choice, 'Not found')
+
+    # output result
+    if birthday == 'Not found':
+        add_choice = input(f"I don't know {choice}'s birthday; enter 'y' to add it: ")
+        if add_choice == 'y':
+            birthday = input(f"Enter {choice}'s birthday (mm/dd/yyyy): ")
+            bd[choice] = birthday
+            try:
+                fileobj = open('scientist_birthdays.json','w')
+            except:
+                print(f"Error opening {filename} for writing.")
+            if fileobj is not None:
+                try:
+                    json.dump(bd,fileobj)
+                except:
+                    print(f"Error writing to {filename}")
+            if fileobj is not None:
+                fileobj.close()
+    else:
+        print(f"{choice}'s birthday is {birthday}.")
+    end_choice = input(f"Enter 'q' to quit or anything else to look up another: ")
+    if end_choice == 'q':
+        break
+    else:
+        continue

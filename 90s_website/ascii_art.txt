@@ -1,0 +1,23 @@
+class AsciiArt:
+    def draw_hangman(self, num):
+        if num == 1:
+            # head
+            msg = " _ \n|_|\n"
+        elif num == 2:
+            # head, body
+            msg = "    _ \n   |_|\n  ----- \n [     ]\n [     ]\n [     ]\n  ----- \n"
+        elif num == 3:
+            # head, body, 1 leg
+            msg = "    _ \n   |_|\n  ----- \n [     ]\n [     ]\n [     ]\n  ----- \n  ]\n  ]\n  ]\n"
+        elif num == 4:
+            # head, body, 2 legs
+            msg = "    _ \n   |_|\n  ----- \n [     ]\n [     ]\n [     ]\n  ----- \n  ]   [\n  ]   [\n  ]   [\n"
+        elif num == 5:
+            # head, body, 2 legs, 1 arm
+            msg = "      _ \n     |_|\n    ----- \n  -[     ]\n / [     ] \n   [     ]\n    ----- \n    ]   [\n    ]   [\n    ]   [\n"
+        elif num == 6:
+            # head, body, 2 legs, 2 arms
+            msg = "      _ \n     |_|\n    ----- \n  -[     ]-\n / [     ] \\\n   [     ]\n    ----- \n    ]   [\n    ]   [\n    ]   [\n"
+        else:
+            msg = f"Input {num} out of range."
+        return msg

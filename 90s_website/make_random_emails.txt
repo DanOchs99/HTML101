@@ -1,0 +1,64 @@
+# create an emails.txt file containing ~1000 random email addresses (some of which are duplicates)
+import random
+
+alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+domains = ['msn.com', 'yahoo.com', 'hotmail.com', 'apple.com', 'gmail.com']
+
+emails = []
+count = 0
+while len(emails) < 1000:
+    # make a random user
+    user_length = random.randint(4,8) # random length from 4 to 8 characters
+    username = ""
+    for i in range(user_length):
+        username = username + alphabet[random.randint(0,len(alphabet)-1)]
+    # pick a random domain
+    domain = domains[random.randint(0,len(domains)-1)] 
+
+    email = username+'@'+domain
+    
+    ### make a random # of repeats
+    # repeat ~20% of the time
+    r = random.randint(1,10)
+    if r == 9 or r == 10:
+        # repeat 2 - 4 times
+        repeat = random.randint(2,4)
+    else:
+        # just add once
+        repeat = 1
+
+    # add to emails list repeat times
+    for j in range(repeat):
+        emails.append(email)
+    
+
+# shuffle the emails list
+random.shuffle(emails)
+
+print(f"Created {len(emails)} random emails.")
+
+# output the emails to text file 'emails.txt'
+line = ''
+with open('emails.txt','w') as file_handle:
+    for email in emails:
+        if len(line) == 0:
+            # new line, just add this email
+            line = line + email
+        elif (len(line) != 0) and ((len(line) + len(email) + 4)  < 80):
+            # existing line and line has room, append email
+            line = line + ', ' + email
+        else:
+            # line out of space
+            line = line + ',\n'
+            file_handle.write(line)
+            line = ''
+    if len(line) > 0:
+        file_handle.write(line)    # append the final line
+    else:
+        print("Plus one more to clean up output... ")
+        file_handle.write(emails[0] + '\n')    # append the first email to have clean file end
+
+print("Wrote all emails to 'emails.txt'")
+
+
+

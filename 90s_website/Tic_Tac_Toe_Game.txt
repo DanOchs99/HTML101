@@ -1,0 +1,188 @@
+# Tic-Tac-Toe Game
+# www.practicepython.org
+#
+# tic - tac - toe game
+# player 1 always goes first, player 1 is 'x' player 2 is 'o'
+
+from os import system
+from random import randint
+
+system('clear')
+
+p1_name = input("Player 1 name: ")
+p2_name = input("Player 2 name (enter Computer for one player mode): ")
+print("Enter your moves as row,col.")
+
+p1_wins = 0
+p2_wins = 0
+
+def draw_board(game):
+    n = 3    # we're playing tic-tac-toe
+    # x is the row loop
+    for x in range(n):
+        # y is the column loop
+        # print top of this row
+        for y in range(n):
+            print(' ---',end='')
+        print()
+        # print middle of this row
+        for y in range(n):
+            if game[x][y] == 0:
+                marker = ' '
+            elif game[x][y] == 1:
+                marker = 'x'
+            else:
+                marker = 'o'
+            print(f'| {marker} ',end='')
+        print('|')
+        # bottom of this row is top of next row, so continue loop
+    # print the bottom of board
+    for y in range(n):
+        print(' ---',end='')
+    print()
+
+def get_random_move(game):
+    moves = []
+    for i in range(3):
+        for j in range(3):
+            if game[i][j] == 0:
+                move = (i,j)
+                moves.append(move)
+    choice = randint(0,len(moves)-1)
+    return moves[choice]
+
+def check_winner(game):
+    # return -1 for no winner, moves remain
+    # return 0 for no winner, no moves left
+    # return 1 for player 1 wins
+    # return 2 for player 2 wins
+    winner = -1
+    # test rows
+    for i in range(3):
+        row = game[i]
+        if row[0] == 1 and row[1] == 1 and row[2] == 1:
+            winner = 1
+        elif row[0] == 2 and row[1] == 2 and row[2] == 2:
+            winner = 2
+    # test columns
+    for i in range(3):
+        col = []
+        col.append(game[0][i])
+        col.append(game[1][i])
+        col.append(game[2][i])
+        if col[0] == 1 and col[1] == 1 and col[2] == 1:
+            winner = 1
+        elif col[0] == 2 and col[1] == 2 and col[2] == 2:
+            winner = 2
+    # test diagonals
+    diag = []
+    diag.append(game[0][0])
+    diag.append(game[1][1])
+    diag.append(game[2][2])
+    if diag[0] == 1 and diag[1] == 1 and diag[2] == 1:
+        winner = 1
+    elif diag[0] == 2 and diag[1] == 2 and diag[2] == 2:
+        winner = 2
+    diag = []
+    diag.append(game[0][2])
+    diag.append(game[1][1])
+    diag.append(game[2][0])
+    if diag[0] == 1 and diag[1] == 1 and diag[2] == 1:
+        winner = 1
+    elif diag[0] == 2 and diag[1] == 2 and diag[2] == 2:
+        winner = 2
+    
+    #if no winner, test for remaining moves
+    open_found = False
+    for i in range(3):
+        for j in range(3):
+            if game[i][j] == 0:
+                open_found = True
+    if not open_found:
+        winner = 0
+
+    return winner
+
+# start main UI loop
+while True:
+    # initialize game
+    game = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+    player = 1
+    ### debug print
+    #print(game)
+    # start game loop
+    while True:    
+        # draw the game board
+        draw_board(game)
+
+        # get a move
+        while True:
+            if player==2 and p2_name == 'Computer':
+                # for now make a random move, later implement minimax to get ideal move
+                move = get_random_move(game)
+                move_display = (move[0] + 1, move[1] + 1)
+                print(f"Computer moves to {move_display}")
+                break
+            elif player == 2:
+                move_str = input(f"{p2_name}'s move: ")
+            else:
+                move_str = input(f"{p1_name}'s move: ")
+            # get move from user input
+            try:
+                move_split = move_str.split(',')
+                move = (int(move_split[0]) - 1, int(move_split[1]) - 1)
+            except ValueError:
+                print("Invalid move entered. Please enter available row,col.")
+                continue
+            else:
+                if move[0] < 0 or move[0] > 2 or move[1] < 0 or move[1] > 2:
+                    print("Invalid move entered. Please enter available row,col.")
+                    continue                                    
+                elif game[move[0]][move[1]] != 0:
+                    move_display = (move[0] + 1, move[1] + 1)
+                    print(f"{move_display} is not available.")
+                    continue
+                else:
+                    break
+        
+        # make the move
+        ### debug print
+        #print(f"Player: {player}     Move: {move}")
+        game[move[0]][move[1]] = player
+        ### debug print
+        #print(game)
+
+        # check for winner or no moves remaining
+        winner = check_winner(game)
+        if winner == 1:
+            # player 1 won game
+            draw_board(game)
+            print(f"{p1_name} (x) wins.")
+            p1_wins += 1
+            break
+        elif winner == 2:
+            # player 2 won game
+            draw_board(game)
+            print(f"{p2_name} (o) wins.")
+            p2_wins += 1
+            break
+        elif winner == 0:
+            # no moves remaining
+            draw_board(game)
+            print("No moves remain. It's a draw.")
+            break
+
+        # swap players
+        if player == 1:
+            player = 2
+        else:
+            player = 1
+        # continue the game
+        continue
+
+    print(f"{p1_name} has won: {p1_wins}     {p2_name} has won: {p2_wins}")
+    choice = input("Enter 'q' to quit or anything else to play again: ")
+    if choice == 'q':
+        break
+    else:
+        continue

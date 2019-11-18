@@ -1,0 +1,14 @@
+body {
+    color: white;
+    background-image: url("../images/bg_stars.gif"); 
+    background-color: black;
+}
+a {
+    color: white;
+    font-size: 14;
+}
+object {
+    background-color: white;
+    width: 1000;
+    height: 300;
+}

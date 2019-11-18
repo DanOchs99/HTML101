@@ -1,0 +1,28 @@
+# remove duplicate emails
+
+# read in the emails
+infile = 'emails.txt'
+with open(infile) as file_object:
+    lines = file_object.readlines()    # returns an array of strings
+
+# create duplicate free emails list
+count_input = 0
+emails = []
+for line in lines:
+    items = line.split(',')
+    for item in items:
+        count_input += 1
+        email = item.rstrip().lstrip()
+        if (email not in emails) and (email != ''):
+            emails.append(email)
+
+# output the emails
+outfile = 'duplicate-free-email-list.txt'
+with open(outfile,'w') as file_object:
+    for email in emails:
+        file_object.write(email)
+        file_object.write('\n')
+
+print(f"{count_input} emails were read in.")
+print(f"{len(emails)} unique emails written to {outfile}")
+

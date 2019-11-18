@@ -1,0 +1,99 @@
+# Hangman
+# www.practicepython.org/exercises
+
+from random import randint
+from os import system
+from ascii_art import AsciiArt
+
+class Words:
+    def __init__(self):
+        self.word_list = []
+        dictname = 'sowpods.txt'
+        fileobj = None
+        try:
+            fileobj = open(dictname,'r')
+        except:
+            print(f"Error opening {dictname}")
+            if fileobj is not None:
+                fileobj.close()
+
+        try:                
+            for line in fileobj:
+                word = line.strip()
+                self.word_list.append(word)
+        except:
+            print(f"Error reading {dictname}")
+        finally:
+            if fileobj is not None:
+                fileobj.close()
+
+        print(f"Read {len(self.word_list)} words from {dictname}")
+
+    def random_word(self):
+        word = self.word_list[randint(0,len(self.word_list)-1)]
+        return word
+
+# setup the game
+word_list = Words()
+word = word_list.random_word()
+alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+correct = []
+for i in range(len(word)):
+    correct.append(' ')
+guesses = []
+misses = 0
+art = AsciiArt()
+
+# clear terminal & print banner
+system('clear')
+print("Welcome to Hangman")
+print()
+
+# main game loop
+while misses < 6:
+    print()
+    for i in range(len(correct)):
+        if correct[i] == ' ':
+            print('_ ',end = '')
+        else:
+            print(f"{correct[i]} ",end = '')
+    print()
+    choice_str = input("Guess a letter: ")
+    try:
+        choice = choice_str.upper()
+    except:
+        print("Try again.")
+        continue
+    if len(choice) != 1:
+        print("Try again.")
+        continue
+    elif choice not in alphabet:
+        print("Try again.")
+        continue
+    else:
+        if choice in guesses:
+            print(f"Already guessed {choice}. Try again.")
+            continue
+    guesses.append(choice)
+    if choice in word:
+        # process a correct guess here
+        right = 0
+        for i in range(len(word)):
+            if word[i]==choice:
+                correct[i] = choice
+                right += 1
+        if right == 1:
+            print(f"There is {right} {choice} in my word.")
+        else:
+            print(f"There are {right} {choice}s in my word.")
+    else:
+        print(f"There are no {choice}s in my word.")
+        misses += 1
+        print(art.draw_hangman(misses))
+
+if misses < 6:
+    print("You guessed my word!")
+else:
+    print("You lose!")
+    print(f"My word was {word.lower()}.")
+ 
