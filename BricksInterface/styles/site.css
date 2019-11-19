@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 0;
+}
+
+body {
+    background-color: black;
+}
+
+.wall_u {
+    position: absolute;
+    width: 100vw;
+    height: 2vh;
+    background-color: lightgreen;
+    top: 0px;
+    left: 0px;
+}
+
+.wall_l {
+    position: absolute;
+    width: 1.8vw;
+    height: 100vw;
+    background-color: lightgreen;
+    top: 0px;
+    left: 0px;
+}
+
+.wall_r {
+    position: absolute;
+    width: 1.8vw;
+    height: 100vw;
+    background-color: lightgreen;
+    top: 0px;
+    right: 0px;
+}
+
+.row_top {
+    margin: 2vh 2vw 0vh 2vw;
+    width: 96vw;
+    height: 5vh;
+}
+
+.row {
+    margin: 0vh 2vw 0vh 2vw;
+    width: 96vw;
+    height: 5vh;
+}
+
+.brick {
+    display: inline-block;
+    width: 7.4vw;
+    height: 4.4vh;
+    margin: 0.3vh 0.3vw 0.3vh 0.3vw;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.black {
+    background-color: black;
+}
+
+.ball_main {
+    background-color: white;
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    left: 20vw;
+    top: 80vh;
+}
+
+.ball_left {
+    background-color: white;
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    left: 19vw;
+    top: 18vh;
+}
+
+.ball_right {
+    background-color: white;
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    right: 18vw;
+    top: 18vh;
+}
+
+.paddle {
+    background-color: lightgreen;
+    position: absolute;
+    width: 15vw;
+    height: 1.5vh;
+    left: 22.5vw;
+    bottom: 0.5vh;
+}
