@@ -1,0 +1,53 @@
+/* mobile styles*/
+#menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+#menu div:nth-child(1) {
+    display: none;
+}
+#iphone_image {
+    content: url(../images/hero_vertical_startframe_small_2x.jpeg);
+    width: 100vw;
+    height: calc(816 * (100vw / 344));
+}
+
+/* desktop styles*/
+@media only screen and (min-width: 735px) {
+#menu {
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100vw;
+}
+#menu div:nth-child(1) {
+    display: block;
+    flex-grow: 2;
+}
+#iphone_image {
+    content: url(../images/iPhone-desktop.png);
+    width: 100vw;
+    height: calc(331 * (100vw / 1024));
+}
+}
+
+/* shared styles */
+body {
+    background-color: black;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    align-items: center;
+}
+#menu {
+    display: flex;
+    background-color: #323232;
+}
+#menu div {
+    color: #E9E9E9;
+    font-size: 16pt;
+    padding: 20px;
+}

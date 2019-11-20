@@ -1,0 +1,191 @@
+/* mobile styles*/
+@media only screen and (max-width: 600px) {
+#menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+#banner {
+    display: none;
+}
+#content {
+    flex-direction: column;
+    margin-top: 200px;
+}
+#item1 img {
+    content: url(../images/Akribos1m.jpg);
+    width: 80vw;
+    height: calc(218 * (90vw / 320));
+}
+#item1 div {
+    width: 80vw;
+    text-align: center;
+    margin: 20px;
+}
+#item2 img {
+    content: url(../images/Fossil1m.jpg);
+    width: 80vw;
+    height: calc(177 * (90vw / 320));
+}
+#item2 div {
+    width: 80vw;
+    text-align: center;
+    margin: 20px;
+}
+#item3 img {
+    content: url(../images/Invicta1m.jpg);
+    width: 80vw;
+    height: calc(194 * (90vw / 320));
+}
+#item3 div {
+    width: 80vw;
+    text-align: center;
+    margin: 20px;
+}
+#item4 img {
+    content: url(../images/Invicta2m.jpg);
+    width: 80vw;
+    height: calc(223 * (90vw / 320));
+}
+#item4 div {
+    width: 80vw;
+    text-align: center;
+    margin: 20px;
+}
+#item5 img {
+    content: url(../images/Lucien_Piccard1m.jpg);
+    width: 80vw;
+    height: calc(202 * (90vw / 320));
+}
+#item5 div {
+    width: 80vw;
+    text-align: center;
+    margin: 20px;
+}
+#item6 img {
+    content: url(../images/Timex1m.jpg);
+    width: 80vw;
+    height: calc(209 * (90vw / 320));
+}
+#item6 div {
+    width: 80vw;
+    text-align: center;
+    margin: 20px;
+}
+}
+
+/* desktop styles*/
+@media only screen and (min-width: 600px) {
+#menu {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100vw;
+}
+#menu div:nth-child(1) {
+    margin-left: 150px;
+}
+#banner {
+    display: block;
+    margin-top: 100px;    /* need to tweak this margin */
+}
+#content {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#item1 img {
+    content: url(../images/Akribos1.jpg);
+    width: 200px;
+    height: calc(320 * (200 / 218));
+    margin-top: calc((360 - (320 * (200 / 218))) / 2);
+    margin-right: 40px;
+    margin-bottom: calc(((360 - (320 * (200 / 218))) / 2) + 20);
+    margin-left: 40px;
+}
+#item1 div {
+    margin-left: 65px;
+    width: 150px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+#item2 img {
+    content: url(../images/Fossil1.jpg);
+    width: 200px;
+    height: 360px;     /* calc(320 * (200 / 177)); */
+    margin: 0 40px 20px 40px;
+}
+#item2 div {
+    margin-left: 65px;
+    width: 150px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+#item3 img {
+    content: url(../images/Invicta1.jpg);
+    width: 200px;
+    height: calc(320 * (200 / 194));
+    margin: 0 40px 20px 40px;
+}
+#item3 div {
+    margin-left: 65px;
+    width: 150px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+#item4 img {
+    content: url(../images/Invicta2.jpg);
+    width: 200px;
+    height: calc(320 * (200 / 223));
+    margin: 0 40px 20px 40px;
+}
+#item4 div {
+    margin-left: 65px;
+    width: 150px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+#item5 img {
+    content: url(../images/Lucien_Piccard1.jpg);
+    width: 200px;
+    height: calc(320 * (200 / 202));
+    margin: 0 40px 20px 40px;
+}
+#item5 div {
+    margin-left: 65px;
+    width: 150px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+#item6 img {
+    content: url(../images/Timex1.jpg);
+    width: 200px;
+    height: calc(320 * (200 / 209));
+    margin: 0 40px 20px 40px;
+}
+#item6 div {
+    margin-left: 65px;
+    width: 150px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+}
+
+/* shared styles */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#menu {
+    display: flex;
+    background-color: black;
+    position: fixed;
+    top: 0px;
+}
+#menu div {
+    color: white;
+    font-size: 16pt;
+    padding: 20px;
+}
+#content {
+    display: flex;
+}
