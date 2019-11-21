@@ -15,7 +15,7 @@
 #item1 img {
     content: url(../images/Akribos1m.jpg);
     width: 80vw;
-    height: calc(218 * (90vw / 320));
+    height: calc(218 * (80vw / 320));
 }
 #item1 div {
     width: 80vw;
@@ -25,7 +25,7 @@
 #item2 img {
     content: url(../images/Fossil1m.jpg);
     width: 80vw;
-    height: calc(177 * (90vw / 320));
+    height: calc(177 * (80vw / 320));
 }
 #item2 div {
     width: 80vw;
@@ -33,9 +33,9 @@
     margin: 20px;
 }
 #item3 img {
-    content: url(../images/Invicta1m.jpg);
+    content: url(../images/Omega1m.jpg);
     width: 80vw;
-    height: calc(194 * (90vw / 320));
+    height: calc(364 * (80vw / 640));
 }
 #item3 div {
     width: 80vw;
@@ -45,7 +45,7 @@
 #item4 img {
     content: url(../images/Invicta2m.jpg);
     width: 80vw;
-    height: calc(223 * (90vw / 320));
+    height: calc(223 * (80vw / 320));
 }
 #item4 div {
     width: 80vw;
@@ -55,7 +55,7 @@
 #item5 img {
     content: url(../images/Lucien_Piccard1m.jpg);
     width: 80vw;
-    height: calc(202 * (90vw / 320));
+    height: calc(202 * (80vw / 320));
 }
 #item5 div {
     width: 80vw;
@@ -65,7 +65,7 @@
 #item6 img {
     content: url(../images/Timex1m.jpg);
     width: 80vw;
-    height: calc(209 * (90vw / 320));
+    height: calc(209 * (80vw / 320));
 }
 #item6 div {
     width: 80vw;
@@ -86,20 +86,24 @@
 }
 #banner {
     display: block;
-    margin-top: 100px;    /* need to tweak this margin */
+    width: 100vw;
+    height: calc(250 * (100vw / 960));
+    margin-top: 90px;    /* need to tweak this margin */
 }
 #content {
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 #item1 img {
     content: url(../images/Akribos1.jpg);
     width: 200px;
-    height: calc(320 * (200 / 218));
-    margin-top: calc((360 - (320 * (200 / 218))) / 2);
-    margin-right: 40px;
-    margin-bottom: calc(((360 - (320 * (200 / 218))) / 2) + 20);
-    margin-left: 40px;
+    /* total height = 360 + 20 = 380 px */
+    height: 294px;     /* 320*(200/218)) */
+    margin-top: 33px;  /* (360-294)/2    */
+    margin-right: 30px;
+    margin-bottom: 53px;     /* 33 + 20  */
+    margin-left: 30px;
 }
 #item1 div {
     margin-left: 65px;
@@ -110,8 +114,8 @@
 #item2 img {
     content: url(../images/Fossil1.jpg);
     width: 200px;
-    height: 360px;     /* calc(320 * (200 / 177)); */
-    margin: 0 40px 20px 40px;
+    height: 360px;     /*  320*(200/177)  */
+    margin: 0 30px 20px 30px;
 }
 #item2 div {
     margin-left: 65px;
@@ -120,10 +124,14 @@
     margin-bottom: 40px;
 }
 #item3 img {
-    content: url(../images/Invicta1.jpg);
+    content: url(../images/Omega1.jpg);
     width: 200px;
-    height: calc(320 * (200 / 194));
-    margin: 0 40px 20px 40px;
+    /* total height = 360 + 20 = 380 px */
+    height: 352px;     /* 640*(200/364)) */
+    margin-top: 4px;  /* (360-352)/2    */
+    margin-right: 30px;
+    margin-bottom: 24px;     /* 4 + 20  */
+    margin-left: 30px;
 }
 #item3 div {
     margin-left: 65px;
@@ -134,8 +142,12 @@
 #item4 img {
     content: url(../images/Invicta2.jpg);
     width: 200px;
-    height: calc(320 * (200 / 223));
-    margin: 0 40px 20px 40px;
+    /* total height = 360 + 20 = 380 px */
+    height: 287px;     /* 320*(200/223)) */
+    margin-top: 37px;  /* (360-287)/2    */
+    margin-right: 30px;
+    margin-bottom: 56px;     /* 36 + 20  */
+    margin-left: 30px;
 }
 #item4 div {
     margin-left: 65px;
@@ -146,8 +158,12 @@
 #item5 img {
     content: url(../images/Lucien_Piccard1.jpg);
     width: 200px;
-    height: calc(320 * (200 / 202));
-    margin: 0 40px 20px 40px;
+    /* total height = 360 + 20 = 380 px */
+    height: 317px;     /* 320*(200/202)) */
+    margin-top: 22px;  /* (360-317)/2    */
+    margin-right: 30px;
+    margin-bottom: 41px;     /* 21 + 20  */
+    margin-left: 30px;
 }
 #item5 div {
     margin-left: 65px;
@@ -158,8 +174,12 @@
 #item6 img {
     content: url(../images/Timex1.jpg);
     width: 200px;
-    height: calc(320 * (200 / 209));
-    margin: 0 40px 20px 40px;
+    /* total height = 360 + 20 = 380 px */
+    height: 306px;     /* 320*(200/209)) */
+    margin-top: 27px;  /* (360-294)/2    */
+    margin-right: 30px;
+    margin-bottom: 47px;     /* 27 + 20  */
+    margin-left: 30px;
 }
 #item6 div {
     margin-left: 65px;
