@@ -1,0 +1,53 @@
+
+#advert {
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+nav {
+    margin: 5px 30px 30px 100px;
+    border-radius: 6px;
+}
+
+#headline {
+    padding: 60px;
+    margin: 5px 30px 30px 100px;
+    font-size: 18px;
+    font-weight: 200;
+    background-color: #eee;
+    border-radius: 6px;
+    width: auto;
+}
+
+#headline h1 {
+    font-size: 60px;
+}
+
+#headline p {
+    margin: 0 0 10px;
+}
+
+#articles {
+    margin: 5px 30px 30px 100px;
+    width: auto;
+}
+
+.title {
+    color: blue;
+    font-size: 14pt;
+}
+
+.summary {
+    font-size: 12pt;
+}
+ @media (min-width: 768px) {
+     #articles .article {
+        width: 50%!important;
+     }
+ }
+
+ @media (max-width: 767.9px) {
+     #articles .article {
+         width: 100%!important;
+     }
+ }
